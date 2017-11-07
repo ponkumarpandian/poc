@@ -18,10 +18,10 @@ RUN ["dotnet", "build"]
 #RUN dotnet publish -c Release -o /publish
 
  
-#ENV ASPNETCORE_URLS http://*:8091
+ENV ASPNETCORE_URLS http://*:8090
 
 
-EXPOSE 9000/tcp
+#EXPOSE 9000/tcp
 
 # Runs the project which is in the current director
 ENTRYPOINT ["dotnet", "run"]
