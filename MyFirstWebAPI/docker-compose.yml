@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  myfirstwebapi:
+    image: myfirstwebapi
+    build:
+      context: ./MyFirstWebAPI
+      dockerfile: Dockerfile
