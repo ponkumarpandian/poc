@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: coreserverdeployment
+spec:
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: eshop
+  template:
+    metadata:
+      labels:
+        app: eshop
+        component: frontend
+    spec:
+      containers:
+      - name: webapi
+        image: ponkumarpandian/webapi:__BuildNumber__
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: eshop
+    component: frontend
+  name: coreserversvc
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: eshop
+    component: frontend
+  type: LoadBalancer
