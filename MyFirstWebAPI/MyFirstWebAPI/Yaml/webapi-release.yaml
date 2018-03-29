@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: webapi
-        image: ponkumarpandian/webapi:Latest
+        image: ponkumarpandian/webapi:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
