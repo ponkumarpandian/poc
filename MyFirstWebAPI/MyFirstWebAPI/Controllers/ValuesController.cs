@@ -13,7 +13,7 @@ namespace MyFirstWebAPI.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] {"Dev","QA","Stage","Pre-Prod","Production"};
+            return new string[] {"Blue", "Red", "Yellow", "Green"};
         }
 
         // GET api/values/5
